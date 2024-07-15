@@ -1,7 +1,9 @@
-import styles from "./page.module.css";
+import { Header } from "../components/header/header";
 
-export default function Home() {
+export default function App() {
   return (
-    <h1 className={styles.title}>Hello World</h1>
+    <>
+      <Header/>
+    </>
   );
 }

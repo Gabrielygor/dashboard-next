@@ -1,0 +1,74 @@
+.navbar {
+    background-color: var(--clr-card);
+    transition: var(--transition);
+    min-height: 8.5rem;
+    padding: 1rem;
+    box-shadow: var(--shadow-card);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    transition: var(--transition);
+    margin-left: 1.5rem;
+}
+
+.theme_btn {
+    margin-right: 4rem;
+}
+
+/*------ Settings ------*/
+.container_theme_btn {
+    --size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    font-size: var(--size);
+    user-select: none;
+    fill: var(--color-theme-btn);
+}
+
+.container_theme_btn .moon {
+    position: absolute;
+    animation: keyframes-fill .5s;
+}
+
+.container_theme_btn .sun {
+    position: absolute;
+    display: none;
+    animation: keyframes-fill .5s;
+}
+
+/* ------ On check event ------ */
+.container_theme_btn input:checked~.moon {
+    display: none;
+}
+
+.container_theme_btn input:checked~.sun {
+    display: block;
+}
+
+/* ------ Hide the default checkbox ------ */
+.container_theme_btn input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* ------ Animation ------ */
+@keyframes keyframes-fill {
+    0% {
+        transform: rotate(-360deg) scale(0);
+        opacity: 0;
+    }
+
+    75% {
+        transform: rotate(25deg);
+    }
+}

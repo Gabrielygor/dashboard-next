@@ -1,0 +1,104 @@
+:root {
+    --clr-background: #d2d2d2;
+    --clr-font: #111111;
+    --clr-card: #fffdfd;
+    --clr-switch-track: #AABBCC;
+    --clr-link: #3333FF;
+
+    --color-theme-btn: #000000;
+    --select-hover: #fff;
+
+
+    /* CARDS VARIABLES */
+    --bg-temperatura: #DC143C;
+    --bg-umidade: #4169E1;
+    --bg-pressao: #00FF00;
+    --bg-luminosidade: #FFD700;
+    --clr-temperatura: #000000;
+    --clr-umidade: #000000;
+    --clr-pressao-1: #000000;
+    --clr-luminosidade-2: #000000;
+
+    --ff: "Cairo", sans-serif;
+    --ts-caption: 600 1.8rem/1 var(--ff);
+    --ts-normal-text: 400 1.6rem/1.4 var(--ff);
+    --ts-normal-semibold: 600 1.6rem/1.4 var(--ff);
+
+    --transition: all 0.2s linear;
+    --shadow-card: 5px 5px 30px 0 rgba(51, 51, 51, 20%);
+
+
+    /* scrollbar */
+    --bg-scrollbar: #8c8484;
+    --clr-scrollbar: #222020;
+
+    --bg-eixos-graficos: #000;
+
+    /* footer */
+
+    --footer-button-icon: #000000;
+    --footer--button-bg: #ffffff;
+    --footer-button-border: #000000;
+
+    --footer-button-hover-icon: #ffffff;
+    --footer-button-hover-bg: #000000;
+    --footer-button-hover-border: #000;
+
+    --status-border-hover: #fff;
+
+    --bg-demais-infos: #000000;
+    --clr-demais-infos: #ffffff;
+
+}
+
+.dark-mode {
+    --clr-background: #151313;
+    --clr-font: #ffffff;
+    --clr-card: #232121;
+    --clr-switch-track: #AABBCC;
+    --clr-link: #C2C2FF;
+
+    --color-theme-btn: #ffffff;
+    --select-hover: #433e3e;
+
+    /* CARDS VARIABLES */
+    --bg-temperatura: rgb(223, 12, 12);
+    --bg-umidade: rgb(0, 81, 255);
+    --bg-pressao: rgb(136, 255, 0);
+    --bg-luminosidade: rgb(229, 255, 0);
+    --clr-temperatura: #000000;
+    --clr-umidade: #000000;
+    --clr-pressao-1: #000000;
+    --clr-luminosidade-2: #000000;
+
+    --ff: "Cairo", sans-serif;
+    --ts-caption: 600 1.8rem/1 var(--ff);
+    --ts-normal-text: 400 1.6rem/1.4 var(--ff);
+    --ts-normal-semibold: 600 1.6rem/1.4 var(--ff);
+
+    --transition: all 0.2s linear;
+    --shadow-card: 5px 5px 30px 0 rgba(221, 221, 221, 5%);
+
+    /* scrollbar */
+    --bg-scrollbar: #000000;
+    --clr-scrollbar: #ffffff;
+
+    /* Graficos */
+    --bg-eixos-graficos: #ffffff;
+
+
+    /* footer */
+
+    --footer-button-icon: #fff;
+    --footer--button-bg: #000;
+    --footer-button-border: #fff;
+
+    --footer-button-hover-icon: #000;
+    --footer-button-hover-bg: #fff;
+    --footer-button-hover-border: #000;
+
+    --status-border-hover: #fff;
+
+    --bg-demais-infos: #fff;
+    --clr-demais-infos: #000;
+}
