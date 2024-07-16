@@ -5,13 +5,16 @@ export function Header() {
     return (
         <header className={style.navbar}>
 
-            <Image
-                src="/ufrn-logo.png"
-                alt="UFRN logo"
-                width={160}
-                height={50}
-                className={style.logo}
-            />
+            <a href="https://www.ufrn.br/" target="blank">
+                <Image
+                    src="/ufrn-logo.png"
+                    alt="UFRN logo"
+                    width={160}
+                    height={50}
+                    className={style.logo}
+                />
+            </a>
+
 
             <div className={style.theme_btn}>
                 <label className={style.container_theme_btn}>
