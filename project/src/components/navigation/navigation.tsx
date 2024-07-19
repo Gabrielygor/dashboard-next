@@ -1,9 +1,9 @@
 'use client'
 
 import { useState } from "react";
-import style from "./navigation.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+
 
 
 //Corrigir ? 
@@ -27,18 +27,18 @@ export function Navigation() {
     }
 
     return (
-        <div className={style.select} >
-            <div className={style.select_toggle} id="select-toggle" onClick={NavigationClickMenu}>
-                <span className={style.select_toggle__select} id="state-select-toggle__state-select">Labican</span>
+        <div className="select">
+            <div className="select_toggle" id="select-toggle" onClick={NavigationClickMenu}>
+                <span className="select_toggle__select" id="state-select-toggle__state-select">Labican</span>
                 <FontAwesomeIcon
                     icon={faChevronDown}
-                    className={`${style.select_toggle__icon} ${isSelectMenuIcon ? style.select_toggle__icon__rotate : ''}`}
+                    className={`select_toggle__icon ${isSelectMenuIcon ? 'select_toggle__icon__rotate' : ''}`}
                 />
             </div>
-            <div className={`${style.select_list} ${isSelectMenuOpen ? style.select_list__show : ''}`} id="state-select-list">
-                <input type="text" name="" id="state-select-list__search" placeholder="Pesquisar" className={style.select_list__search} />
+            <div className={`select_list ${isSelectMenuOpen ? 'select_list__show' : ''}`} id="state-select-list">
+                <input type="text" name="" id="state-select-list__search" placeholder="Pesquisar" className="select_list__search" />
                 <ul>
-                    <li onClick={OpenNavigationMenu} className={style.select_list__item} data-id="1293177">Labican</li>
+                    <li onClick={OpenNavigationMenu} className="select_list__item" data-id="1293177">Labican</li>
                 </ul>
             </div>
         </div>

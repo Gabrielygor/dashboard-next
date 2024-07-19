@@ -3,6 +3,12 @@ import { Inter } from "next/font/google";
 import "./css/reset.css";
 import "./css/globals.css";
 import "./css/variables.css";
+
+import "./css/header.css"
+import "./css/navigation.css"
+import "./css/main.css"
+import "./css/cards.css"
+
 import "./css/responsive.css"
 
 const inter = Inter({ subsets: ["latin"] });
@@ -18,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pr-br">
+    <html lang="pr-br" className="dark-mode ">
       <body className={inter.className}>{children}</body>
     </html>
   );

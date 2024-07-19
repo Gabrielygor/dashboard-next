@@ -1,17 +1,27 @@
+import { Humidity } from "../cards/cardHumi";
+import { Temperature } from "../cards/cardTemp";
 import { Navigation } from "../navigation/navigation";
-import style from "./main.module.css"
-
+import { Pressure } from "../cards/cardPress";
+import { Luminosity } from "../cards/cardLum";
 
 
 export function Main() {
     return (
-        <main className={style.container}>
+        <main className="container">
 
-            <h1 className={style.container__title}>
+            <h1 className="container__title">
                 Estações
             </h1>
 
             <Navigation />
+
+            <div className="cards">
+                <Temperature />
+                <Humidity />
+                <Pressure />
+                <Luminosity />
+            </div>
+
         </main>
     )
 }
