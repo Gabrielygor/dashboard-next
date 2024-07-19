@@ -1,0 +1,73 @@
+.select {
+    font: var(--ts-normal-semibold);
+    background-color: var(--clr-card);
+    transition: var(--transition);
+    box-shadow: var(--shadow-card);
+    border-radius: 1rem;
+    position: relative;
+}
+
+.select_toggle {
+    color: var(--clr-font);
+    padding: 1.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.select_toggle__icon__rotate {
+    transform: rotate(-180deg);
+}
+
+.select_list {
+    background-color: var(--clr-card);
+    transition: var(--transition);
+    box-shadow: var(--shadow-card);
+    width: 100%;
+    max-height: 30rem;
+    overflow-y: scroll;
+    border-radius: 1rem;
+    position: absolute;
+    top: calc(100% + 1.5rem);
+    visibility: hidden;
+    opacity: 0;
+    overflow-x: hidden;
+}
+
+.select_list__show {
+    visibility: visible;
+    opacity: 1;
+    top: calc(100% + .75rem);
+}
+
+.select_list__search {
+    background-color: var(--clr-background);
+    transition: var(--transition);
+    color: var(--clr-font);
+    width: 100%;
+    padding: 1.6rem 0 1.6rem 1.6rem;
+    border: none;
+    outline: none;
+}
+
+.select_list__search::placeholder {
+    color: var(--clr-font);
+    transition: var(--transition);
+    opacity: .6;
+}
+
+.select_list__item {
+    padding: 1.6rem;
+    color: var(--clr-link);
+    cursor: pointer;
+}
+
+.select_list__item:hover {
+    background-color: var(--select-hover);
+    color: var(--clr-link);
+}
+
+.select_list__item--hide {
+    display: none;
+}
