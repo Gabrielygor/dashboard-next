@@ -10,18 +10,29 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 export function Navigation() {
     const [isSelectMenuOpen, setIsSelectMenuOpen] = useState(false);
+    const [isSelectMenuIcon, setIsSelectMenuIcon] = useState(false)
+
 
     function OpenNavigationMenu() {
         setIsSelectMenuOpen(!isSelectMenuOpen);
     }
 
+    function SwitchNavigationMenuIcon() {
+        setIsSelectMenuIcon(!isSelectMenuIcon)
+    }
+
+    function NavigationClickMenu() {
+        OpenNavigationMenu();
+        SwitchNavigationMenuIcon();
+    }
+
     return (
         <div className={style.select} >
-            <div className={style.select_toggle} id="select-toggle" onClick={OpenNavigationMenu}>
+            <div className={style.select_toggle} id="select-toggle" onClick={NavigationClickMenu}>
                 <span className={style.select_toggle__select} id="state-select-toggle__state-select">Labican</span>
-                {/* <i className="fas fa-chevron-down state-select-toggle__icon" id="state-select-toggle__icon"></i> */}
                 <FontAwesomeIcon
                     icon={faChevronDown}
+                    className={`${style.select_toggle__icon} ${isSelectMenuIcon ? style.select_toggle__icon__rotate : ''}`}
                 />
             </div>
             <div className={`${style.select_list} ${isSelectMenuOpen ? style.select_list__show : ''}`} id="state-select-list">

@@ -16,6 +16,10 @@
     cursor: pointer;
 }
 
+.select_toggle__icon {
+    color: var(--clr-font);
+}
+
 .select_toggle__icon__rotate {
     transform: rotate(-180deg);
 }
