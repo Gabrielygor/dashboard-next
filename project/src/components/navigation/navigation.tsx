@@ -38,7 +38,7 @@ export function Navigation() {
             <div className={`${style.select_list} ${isSelectMenuOpen ? style.select_list__show : ''}`} id="state-select-list">
                 <input type="text" name="" id="state-select-list__search" placeholder="Pesquisar" className={style.select_list__search} />
                 <ul>
-                    <li className={style.select_list__item} data-id="1293177">Labican</li>
+                    <li onClick={OpenNavigationMenu} className={style.select_list__item} data-id="1293177">Labican</li>
                 </ul>
             </div>
         </div>
