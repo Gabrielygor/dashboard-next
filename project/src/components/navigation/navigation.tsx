@@ -4,26 +4,26 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-
-
-//Corrigir ? 
-
 export function Navigation() {
     const [isSelectMenuOpen, setIsSelectMenuOpen] = useState(false);
-    const [isSelectMenuIcon, setIsSelectMenuIcon] = useState(false)
-
+    const [isSelectMenuIcon, setIsSelectMenuIcon] = useState(false);
 
     function OpenNavigationMenu() {
         setIsSelectMenuOpen(!isSelectMenuOpen);
     }
 
     function SwitchNavigationMenuIcon() {
-        setIsSelectMenuIcon(!isSelectMenuIcon)
+        setIsSelectMenuIcon(!isSelectMenuIcon);
     }
 
     function NavigationClickMenu() {
         OpenNavigationMenu();
         SwitchNavigationMenuIcon();
+    }
+
+    function ReturnId(id: string) {
+        console.log(id);
+        OpenNavigationMenu();
     }
 
     return (
@@ -38,7 +38,7 @@ export function Navigation() {
             <div className={`select_list ${isSelectMenuOpen ? 'select_list__show' : ''}`} id="state-select-list">
                 <input type="text" name="" id="state-select-list__search" placeholder="Pesquisar" className="select_list__search" />
                 <ul>
-                    <li onClick={OpenNavigationMenu} className="select_list__item" data-id="1293177">Labican</li>
+                    <li onClick={() => ReturnId("1293177")} className="select_list__item" id="1293177">Labican</li>
                 </ul>
             </div>
         </div>
