@@ -57,3 +57,41 @@
     font-size: 2rem;
     margin-right: 1rem;
 }
+
+.footer {
+    color: var(--clr-font);
+}
+
+.footer-text__soucer {
+    margin-bottom: 3.2rem;
+}
+
+.back_to_top_button {
+    position: absolute;
+    right: 0;
+    margin-right: 1.8rem;
+    padding: .8rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    text-decoration: none;
+    cursor: pointer;
+
+    color: var(--footer-button-icon);
+    background-color: var(--footer-button-bg);
+    border: 2px solid var(--footer-button-border);
+    transition: var(--transition);
+}
+
+.back_to_top_button:hover {
+    color: var(--footer-button-hover-icon);
+    background-color: var(--footer-button-hover-bg);
+    border: 2px solid var(--footer-button-hover-border);
+}
+
+.back_to_top_button__icon {
+    rotate: 180deg;
+}

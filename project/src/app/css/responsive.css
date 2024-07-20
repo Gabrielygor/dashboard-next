@@ -26,8 +26,10 @@
         gap: 1.5rem;
     }
 
-    .footer__button {
+    .back_to_top_button {
         margin-right: 5rem;
+        padding: 2rem;
+
     }
 }
 
