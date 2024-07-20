@@ -25,3 +25,35 @@
     text-transform: uppercase;
     margin-bottom: 2.5rem;
 }
+
+.demais__info__container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+}
+
+.demais__info {
+    box-shadow: var(--shadow-card);
+    background-color: var(--clr-background);
+    color: var(--clr-font);
+    font: var(--ts-normal-semibold);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    border-radius: 1rem;
+    transition: var(--transition);
+}
+
+.demais__info:hover {
+    background-color: var(--bg-demais-infos);
+    color: var(--clr-demais-infos);
+}
+
+.demais__info__icon {
+    font-size: 2rem;
+    margin-right: 1rem;
+}
