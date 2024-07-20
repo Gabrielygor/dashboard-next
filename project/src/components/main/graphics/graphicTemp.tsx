@@ -1,6 +1,3 @@
-
-
-
 export function GraphicTemperature() {
     return (
         <section className="data-box temperatura-grafico" id="temperaturaSection">
