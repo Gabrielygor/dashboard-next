@@ -1,6 +1,6 @@
 import { Humidity } from "./cards/cardHumi";
 import { Temperature } from "./cards/cardTemp";
-import { Navigation } from "../navigation/navigation";
+import { Navigation } from "./navigation/navigation";
 import { Pressure } from "./cards/cardPress";
 import { Luminosity } from "./cards/cardLum";
 
