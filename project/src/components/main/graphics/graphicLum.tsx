@@ -1,6 +1,6 @@
 export function GraphicLuminosity() {
     return (
-        <section className="data-box umidade-grafico" id="luminosidadeSection">
+        <section className="data-box" id="luminosidadeSection">
             <h2 className="data-box__header">
                 Luminosidade
             </h2>

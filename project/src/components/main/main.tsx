@@ -5,6 +5,8 @@ import { Pressure } from "./cards/cardPress";
 import { Luminosity } from "./cards/cardLum";
 import { GraphicTemperature } from "./graphics/graphicTemp";
 import { GraphicLuminosity } from "./graphics/graphicLum";
+import { GraphicPressure } from "./graphics/graphicPress";
+import { GraphicHumidity } from "./graphics/garphicHumi";
 
 
 export function Main() {
@@ -28,23 +30,11 @@ export function Main() {
 
                 <GraphicTemperature />
                 <GraphicLuminosity />
+                <GraphicPressure />
+                <GraphicHumidity />
 
 
-                <section className="data-box pressao-grafico" id="pressaoSection">
-                    <h2 className="data-box__header">
-                        pressão
-                    </h2>
-                    <div className="data-box__body" id="pressaoGrafico">
-                    </div>
-                </section>
 
-                <section className="data-box luminosidade-grafico" id="umidadeSection">
-                    <h2 className="data-box__header">
-                        Umidade
-                    </h2>
-                    <div className="data-box__body" id="umidadeGrafico">
-                    </div>
-                </section>
 
                 <section className="data-box padrao">
                     <h2 className="data-box__header">

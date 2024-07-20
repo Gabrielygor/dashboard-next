@@ -4,8 +4,9 @@ export function GraphicTemperature() {
             <h2 className="data-box__header">
                 Temperatura
             </h2>
-            <div className="data-box__body limpa-grafico" id="temperaturaGrafico">
+            <div className="data-box__body" id="temperaturaGrafico">
             </div>
         </section>
     )
 }
+
