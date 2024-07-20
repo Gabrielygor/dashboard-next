@@ -3,6 +3,7 @@ import { Temperature } from "./cards/cardTemp";
 import { Navigation } from "./navigation/navigation";
 import { Pressure } from "./cards/cardPress";
 import { Luminosity } from "./cards/cardLum";
+import { GraphicTemperature } from "./graphics/graphicTemp";
 
 
 export function Main() {
@@ -20,6 +21,13 @@ export function Main() {
                 <Humidity />
                 <Pressure />
                 <Luminosity />
+            </div>
+
+            <div className="graficos">
+
+                <GraphicTemperature />
+
+
             </div>
 
         </main>

@@ -12,3 +12,16 @@
     text-transform: uppercase;
     margin: 0 0 -1.8rem .8rem;
 }
+
+.graficos {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.data-box__header {
+    font: var(--ts-caption);
+    color: var(--clr-font);
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+}
