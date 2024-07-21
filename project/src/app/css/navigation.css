@@ -18,7 +18,8 @@
 }
 
 .select_toggle__icon {
-    font-size: 1.6rem;
+    font-size: 1.5rem; /* Ajuste o tamanho conforme necessário */
+    transition: var(--transition);
     color: var(--clr-font);
 }
 
