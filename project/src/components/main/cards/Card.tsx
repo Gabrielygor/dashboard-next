@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 
 interface CardProps {
+    link: string
     title: string
     unit: string
     className: string
@@ -9,9 +10,9 @@ interface CardProps {
     icon: IconDefinition
 }
 
-export function Card({ value, icon, title, unit, className }: CardProps) {
+export function Card({ value, icon, title, unit, className, link }: CardProps) {
     return (
-        <a href="#temperaturaSection">
+        <a href={link}>
             <section className={className}>
                 <div className="status__icon">
                     <FontAwesomeIcon

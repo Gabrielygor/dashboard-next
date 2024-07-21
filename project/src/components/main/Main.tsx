@@ -15,6 +15,8 @@ import axios from "axios";
 interface ThingSpeakData {
     field1?: string;
     field2?: string;
+    field3?: string;
+    field4?: string;
 }
 
 export function Main() {
@@ -44,6 +46,7 @@ export function Main() {
             <div className="cards">
 
                 <Card
+                    link="#temperaturaSection"
                     className='status temperatura'
                     title="Temperatura"
                     unit="°C"
@@ -52,6 +55,7 @@ export function Main() {
                 />
 
                 <Card
+                    link="#pressaoSection"
                     className='status pressao'
                     title="Pressão"
                     unit="hpa"
@@ -60,6 +64,7 @@ export function Main() {
                 />
 
                 <Card
+                    link="#umidadeSection"
                     className='status umidade'
                     title="Umidade"
                     unit="%"
@@ -68,6 +73,7 @@ export function Main() {
                 />
 
                 <Card
+                    link="#luminosidadeSection"
                     className='status luminosidade'
                     title="Luminosidade"
                     unit=""
