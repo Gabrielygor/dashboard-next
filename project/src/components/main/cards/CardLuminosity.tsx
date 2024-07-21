@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLightbulb } from "@fortawesome/free-solid-svg-icons";
 
-export function Luminosity() {
+export function CardLuminosity() {
     return (
         <a href="#luminosidadeSection">
             <section className="status luminosidade">

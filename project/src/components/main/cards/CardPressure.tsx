@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCompass } from "@fortawesome/free-solid-svg-icons";
 
-export function Pressure() {
+export function CardPressure() {
     return (
         <a href="#pressaoSection">
             <section className="status pressao">

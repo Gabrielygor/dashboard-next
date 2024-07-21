@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDroplet } from "@fortawesome/free-solid-svg-icons";
 
-export function Humidity() {
+export function CardHumidity() {
     return (
         <a href="#umidadeSection">
             <section className="status umidade">

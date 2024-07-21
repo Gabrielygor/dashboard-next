@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTemperatureLow } from "@fortawesome/free-solid-svg-icons";
 
-export function Temperature() {
+export function CardTemperature() {
     return (
         <a href="#temperaturaSection">
             <section className="status temperatura">

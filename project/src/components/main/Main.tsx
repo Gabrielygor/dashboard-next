@@ -1,12 +1,12 @@
-import { Humidity } from "./cards/cardHumi";
-import { Temperature } from "./cards/cardTemp";
-import { Navigation } from "./navigation/navigation";
-import { Pressure } from "./cards/cardPress";
-import { Luminosity } from "./cards/cardLum";
-import { GraphicTemperature } from "./graphics/graphicTemp";
-import { GraphicLuminosity } from "./graphics/graphicLum";
-import { GraphicPressure } from "./graphics/graphicPress";
-import { GraphicHumidity } from "./graphics/garphicHumi";
+import { Navigation } from "./navigation/Navigation";
+import { CardHumidity } from "./cards/CardHumidity";
+import { CardTemperature } from "./cards/CardTemperature";
+import { CardPressure } from "./cards/CardPressure";
+import { CardLuminosity } from "./cards/CardLuminosity";
+import { GraphicTemperature } from "./graphics/GraphicTemperature";
+import { GraphicLuminosity } from "./graphics/GraphicLuminosity";
+import { GraphicPressure } from "./graphics/GraphicPressure";
+import { GraphicHumidity } from "./graphics/GraphicHumidity";
 
 
 export function Main() {
@@ -20,10 +20,10 @@ export function Main() {
             <Navigation />
 
             <div className="cards">
-                <Temperature />
-                <Humidity />
-                <Pressure />
-                <Luminosity />
+                <CardTemperature />
+                <CardHumidity />
+                <CardPressure />
+                <CardLuminosity />
             </div>
 
             <div className="graficos">
@@ -73,8 +73,6 @@ export function Main() {
                             <h3 className="demais__info__h3">Altitude Aproximada: </h3><span className="demais__info__span"
                                 id="altitudeAproximada"></span> <span>M</span>
                         </div>
-
-
                     </div>
                 </section>
 
