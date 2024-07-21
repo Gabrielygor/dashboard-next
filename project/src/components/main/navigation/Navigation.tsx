@@ -22,7 +22,7 @@ export function Navigation() {
         SwitchNavigationMenuIcon();
     }
 
-    function ReturnLocalInfos(id: string, name: string) {
+    function ReturnLocalNameAndId(id: string, name: string) {
         console.log(id);
         console.log(name);
         setIsSelectedLocal(name)
@@ -41,8 +41,8 @@ export function Navigation() {
             <div className={`select_list ${isSelectMenuOpen ? 'select_list__show' : ''}`} id="state-select-list">
                 <input type="text" name="" id="state-select-list__search" placeholder="Pesquisar" className="select_list__search" />
                 <ul>
-                    <li onClick={() => ReturnLocalInfos("1293177", "Labican")} className="select_list__item" id="1293177">Labican</li>
-                    <li onClick={() => ReturnLocalInfos("45123123", "Biblioteca")} className="select_list__item" id="45123123">Biblioteca</li>
+                    <li onClick={() => ReturnLocalNameAndId("1293177", "Labican")} className="select_list__item" id="1293177">Labican</li>
+                    <li onClick={() => ReturnLocalNameAndId("45123123", "Biblioteca")} className="select_list__item" id="45123123">Biblioteca</li>
                 </ul>
             </div>
         </div>
