@@ -7,10 +7,14 @@ import { GraphicTemperature } from "./graphics/GraphicTemperature";
 import { GraphicLuminosity } from "./graphics/GraphicLuminosity";
 import { GraphicPressure } from "./graphics/GraphicPressure";
 import { GraphicHumidity } from "./graphics/GraphicHumidity";
+import { OtherInformation } from "./otherinformation/OtherInformation";
+import { faFire, faWind, faTree, faMountain } from "@fortawesome/free-solid-svg-icons";
 
 
 export function Main() {
+
     return (
+
         <main className="container">
 
             <h1 className="container__title">
@@ -49,10 +53,39 @@ export function Main() {
                         Conforto Ambiental e Qualidade do Ar
                     </h2>
                     <div className="data-box__body demais__info__container">
-                        <div className="demais__info">
+
+                        <OtherInformation
+                            text="Conforto térmico:"
+                            id="indeceDeConfortoTermico"
+                            icon={faWind}
+                            unit="°C"
+                        />
+
+                        <OtherInformation
+                            text="indice de calor:"
+                            id="indiceDeCalor"
+                            icon={faFire}
+                            unit="°C"
+                        />
+
+                        <OtherInformation
+                            text="ponto de orvalho:"
+                            id="pontoDeOrvalho"
+                            icon={faTree}
+                            unit="°C"
+                        />
+
+                        <OtherInformation
+                            text="Altitude Aproximada:"
+                            id="altitudeAproximada"
+                            icon={faMountain}
+                            unit="M"
+                        />
+
+                        {/* <div className="demais__info">
                             <i className="fa-solid fa-wind demais__info__icon"></i>
                             <h3 className="demais__info__h3">Conforto térmico: </h3><span className="demais__info__span"
-                                id="indeceDeConfortoTermico"></span> <span>°C</span>
+                                id="indeceDeConfortoTermico"></span> <span></span>
                         </div>
 
                         <div className="demais__info">
@@ -72,7 +105,7 @@ export function Main() {
                             <i className="fa-solid fa-mountain demais__info__icon"></i>
                             <h3 className="demais__info__h3">Altitude Aproximada: </h3><span className="demais__info__span"
                                 id="altitudeAproximada"></span> <span>M</span>
-                        </div>
+                        </div> */}
                     </div>
                 </section>
 
