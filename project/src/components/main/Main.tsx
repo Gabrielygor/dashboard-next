@@ -14,8 +14,6 @@ export function Main() {
 
     const { thingspeak, oi } = useThingSpeakData();
 
-    console.log(oi);
-
     return (
 
         <main className="container">
@@ -63,7 +61,6 @@ export function Main() {
                     icon={faLightbulb}
                     value={thingspeak.field4}
                 />
-
 
             </div>
 

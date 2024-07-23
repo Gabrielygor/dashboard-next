@@ -10,14 +10,24 @@ interface ThingSpeakData {
 
 export function useThingSpeakData() {
     const [thingspeak, setThingSpeak] = useState<ThingSpeakData>({});
-    const oi = 'oi'
+    const oi = 'oi';
 
     useEffect(() => {
-        axios
-            .get('https://api.thingspeak.com/channels/12397/feeds/last.json')
-            .then((response) => setThingSpeak(response.data))
-            .catch((err) => console.log(err))
-            .finally(() => console.log('finally'));
+        const fetchData = () => {
+            axios
+                .get('https://api.thingspeak.com/channels/12397/feeds/last.json')
+                .then((response) => setThingSpeak(response.data))
+                .catch((err) => console.log(err))
+                .finally(() => console.log('finally'));
+        };
+
+        fetchData();
+
+        console.log("Requisição 3 Minutos");
+
+        const interval = setInterval(fetchData, 180000);
+
+        return () => clearInterval(interval);
     }, []);
 
     return { thingspeak, oi };
