@@ -19,7 +19,7 @@ export function Main() {
     console.log(graphic);
     
 
-
+//
     return (
 
         <main className="container">
