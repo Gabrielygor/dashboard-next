@@ -9,10 +9,16 @@ import { GraphicHumidity } from "./graphics/GraphicHumidity";
 import { OtherInformation } from "./otherinformation/OtherInformation";
 import { faFire, faWind, faTree, faMountain, faTemperatureLow, faDroplet, faLightbulb, faCompass } from "@fortawesome/free-solid-svg-icons";
 import { useThingSpeakData } from "@/hooks/ThingSpeakData";
+import { useThingSpeakGraphic } from "@/hooks/ThingSpeakGraphic";
 
 export function Main() {
 
-    const { thingspeak, oi } = useThingSpeakData();
+    const { thingspeak } = useThingSpeakData();
+    const { graphic } = useThingSpeakGraphic();
+
+    console.log(graphic);
+    
+
 
     return (
 
@@ -66,7 +72,9 @@ export function Main() {
 
             <div className="graficos">
 
-                <GraphicTemperature />
+                <GraphicTemperature
+                    value={graphic.field1}
+                />
                 <GraphicLuminosity />
                 <GraphicPressure />
                 <GraphicHumidity
