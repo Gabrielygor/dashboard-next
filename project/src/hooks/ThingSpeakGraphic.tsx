@@ -26,7 +26,7 @@ export function useThingSpeakGraphic() {
                     setGraphic({ field1, field2, field3, field4 });
                 })
                 .catch((err) => console.log(err))
-                .finally(() => console.log('finaly graphic'));
+                .finally(() => console.log('finally graphic'));
         };
 
         fetchData();

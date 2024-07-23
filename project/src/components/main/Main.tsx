@@ -16,10 +16,7 @@ export function Main() {
     const { thingspeak } = useThingSpeakData();
     const { graphic } = useThingSpeakGraphic();
 
-    console.log(graphic);
-    
 
-//
     return (
 
         <main className="container">
