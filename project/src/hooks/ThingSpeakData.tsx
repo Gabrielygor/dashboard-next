@@ -10,7 +10,6 @@ interface ThingSpeakData {
 
 export function useThingSpeakData() {
     const [thingspeak, setThingSpeak] = useState<ThingSpeakData>({});
-    const oi = 'oi';
 
     useEffect(() => {
         const fetchData = () => {
@@ -30,5 +29,5 @@ export function useThingSpeakData() {
         return () => clearInterval(interval);
     }, []);
 
-    return { thingspeak, oi };
+    return { thingspeak };
 }
