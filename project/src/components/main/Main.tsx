@@ -128,6 +128,7 @@ export function Main() {
                             id="indeceDeConfortoTermico"
                             icon={faWind}
                             unit="°C"
+                            value=''
                         />
 
                         <OtherInformation
@@ -135,6 +136,7 @@ export function Main() {
                             id="indiceDeCalor"
                             icon={faFire}
                             unit="°C"
+                            value=''
                         />
 
                         <OtherInformation
@@ -142,6 +144,7 @@ export function Main() {
                             id="pontoDeOrvalho"
                             icon={faTree}
                             unit="°C"
+                            value=''
                         />
 
                         <OtherInformation
@@ -149,6 +152,7 @@ export function Main() {
                             id="altitudeAproximada"
                             icon={faMountain}
                             unit="M"
+                            value=''
                         />
 
                     </div>

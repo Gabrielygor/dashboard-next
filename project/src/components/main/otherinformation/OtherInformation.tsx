@@ -7,10 +7,11 @@ interface OtherInformationProps {
     id: string
     icon: IconDefinition
     unit: string
+    value: String
 }
 
 
-export function OtherInformation({ text, id, icon, unit }: OtherInformationProps) {
+export function OtherInformation({ text, id, icon, unit, value }: OtherInformationProps) {
     return (
         <div className="demais__info">
 
@@ -19,9 +20,9 @@ export function OtherInformation({ text, id, icon, unit }: OtherInformationProps
             />
             <h3 className="demais__info__h3">
                 {text}
-            </h3> 
+            </h3>
             <span className="demais__info__span" id={id}>
-                100
+                {value}
             </span>
             <span>
                 {unit}
