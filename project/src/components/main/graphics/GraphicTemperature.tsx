@@ -16,10 +16,14 @@ export function GraphicTemperature({ value }: GraphicTemperatureProps) {
                         type: 'line',
                         height: 500
                     },
+
                     series: [{
                         name: 'Temperature',
                         data: value.map(v => parseFloat(v)) // Convertendo os valores para números
                     }],
+                    
+                    colors: ['#DC143C'],
+
                     xaxis: {
                         categories: Array.from({ length: value.length }, (_, i) => i + 1), // Exemplo de categorias para o eixo x
                         labels: {
@@ -31,6 +35,7 @@ export function GraphicTemperature({ value }: GraphicTemperatureProps) {
                             }
                         }
                     },
+
                     yaxis: {
                         labels: {
                             style: {
@@ -39,6 +44,12 @@ export function GraphicTemperature({ value }: GraphicTemperatureProps) {
                                 fontFamily: 'Arial, sans-serif',
                                 fontWeight: 400
                             }
+                        }
+                    },
+
+                    legend: {
+                        labels: {
+                            useSeriesColors: false,
                         }
                     }
                 };
