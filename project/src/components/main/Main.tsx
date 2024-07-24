@@ -2,10 +2,7 @@
 
 import { Navigation } from "./navigation/Navigation";
 import { Card } from "./cards/Card";
-import { GraphicTemperature } from "./graphics/GraphicTemperature";
-import { GraphicLuminosity } from "./graphics/GraphicLuminosity";
-import { GraphicPressure } from "./graphics/GraphicPressure";
-import { GraphicHumidity } from "./graphics/GraphicHumidity";
+import { Graphic } from "./graphics/Graphic";
 import { OtherInformation } from "./otherinformation/OtherInformation";
 import { faFire, faWind, faTree, faMountain, faTemperatureLow, faDroplet, faLightbulb, faCompass } from "@fortawesome/free-solid-svg-icons";
 import { useThingSpeakData } from "@/hooks/ThingSpeakData";
@@ -69,12 +66,47 @@ export function Main() {
 
             <div className="graficos">
 
-                <GraphicTemperature
+                <Graphic
                     value={graphic.field1}
+                    name="Temperatura"
+                    color="#DC143C"
+                    id="temperaturaGrafico"
+                    className="data-box temperatura-grafico"
+                    sectionId='temperaturaSection'
+                    height='500'
                 />
-                <GraphicLuminosity />
-                <GraphicPressure />
-                <GraphicHumidity
+
+                <Graphic
+                    value={graphic.field2}
+                    name="Luminosidade"
+                    color="#FFD700"
+                    id="luminosidadeGrafico"
+                    className="data-box"
+                    sectionId='luminosidadeSection'
+                    height='200'
+
+                />
+
+                <Graphic
+                    value={graphic.field2}
+                    name="Pressão"
+                    color="#00FF00"
+                    id="pressaoGrafico"
+                    className="data-box pressao-grafico"
+                    sectionId='pressaoSection'
+                    height='200'
+
+                />
+
+                <Graphic
+                    value={graphic.field2}
+                    name="Umidade"
+                    color="#4169E1"
+                    id="umidadeGrafico"
+                    className="data-box humidade-grafico"
+                    sectionId='umidadeSection'
+                    height='350'
+
                 />
 
                 <section className="data-box padrao">

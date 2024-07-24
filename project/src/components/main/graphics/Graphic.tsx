@@ -2,11 +2,17 @@
 
 import { useEffect } from "react";
 
-interface GraphicTemperatureProps {
+interface GraphicProps {
     value: string[] | undefined;
+    name: string
+    color: string
+    id:string
+    className:string
+    sectionId:string
+    height: string
 }
 
-export function GraphicTemperature({ value }: GraphicTemperatureProps) {
+export function Graphic({ value , name, color, id , className, sectionId, height}: GraphicProps) {
     useEffect(() => {
         // Importação da biblioteca ApexCharts dentro do useEffect
         import("apexcharts").then(ApexCharts => {
@@ -14,15 +20,15 @@ export function GraphicTemperature({ value }: GraphicTemperatureProps) {
                 const options = {
                     chart: {
                         type: 'line',
-                        height: 500
+                        height: height
                     },
 
                     series: [{
-                        name: 'Temperature',
+                        name: name,
                         data: value.map(v => parseFloat(v)) // Convertendo os valores para números
                     }],
                     
-                    colors: ['#DC143C'],
+                    colors: [color],
 
                     xaxis: {
                         categories: Array.from({ length: value.length }, (_, i) => i + 1), // Exemplo de categorias para o eixo x
@@ -54,7 +60,7 @@ export function GraphicTemperature({ value }: GraphicTemperatureProps) {
                     }
                 };
 
-                const chart = new ApexCharts.default(document.querySelector("#temperaturaGrafico"), options);
+                const chart = new ApexCharts.default(document.querySelector(`#${id}`), options);
                 chart.render();
 
                 return () => {
@@ -62,14 +68,14 @@ export function GraphicTemperature({ value }: GraphicTemperatureProps) {
                 };
             }
         });
-    }, [value]);
+    }, [value, name, color, id, className, sectionId, height]);
 
     return (
-        <section className="data-box temperatura-grafico" id="temperaturaSection">
+        <section className={className} id={sectionId}>
             <h2 className="data-box__header">
-                Temperatura
+                {name}
             </h2>
-            <div className="data-box__body" id="temperaturaGrafico">
+            <div className="data-box__body" id={id}>
                 {!value ? "Carregando..." : null}
             </div>
         </section>
