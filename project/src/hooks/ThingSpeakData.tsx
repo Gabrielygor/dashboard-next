@@ -16,7 +16,7 @@ export function useThingSpeakData() {
     useEffect(() => {
         const fetchData = () => {
             axios
-                .get('https://api.thingspeak.com/channels/12397/feeds/last.json')
+                .get('https://api.thingspeak.com/channels/1293177/feeds/last.json')
                 .then((response) => setThingSpeak(response.data))
                 .catch((err) => console.log(err))
                 .finally(() => console.log('finally'));

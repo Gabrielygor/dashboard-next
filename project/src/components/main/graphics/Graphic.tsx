@@ -31,7 +31,8 @@ export function Graphic({ value , name, color, id , className, sectionId, height
                     colors: [color],
 
                     xaxis: {
-                        categories: Array.from({ length: value.length }, (_, i) => i + 1), // Exemplo de categorias para o eixo x
+                        categories: [''], 
+                        
                         labels: {
                             style: {
                                 colors: 'var(--bg-eixos-graficos)', // Define a cor da fonte dos rótulos
@@ -81,3 +82,5 @@ export function Graphic({ value , name, color, id , className, sectionId, height
         </section>
     );
 }
+
+//'11:20' , '11:22' , '11:23' , '11:25' , '11:27' , '11:28' , '11:30' , '11:32' , '11:34' , '11:35'

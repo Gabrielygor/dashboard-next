@@ -77,7 +77,7 @@ export function Main() {
                 />
 
                 <Graphic
-                    value={graphic.field2}
+                    value={graphic.field4}
                     name="Luminosidade"
                     color="#FFD700"
                     id="luminosidadeGrafico"
@@ -99,7 +99,7 @@ export function Main() {
                 />
 
                 <Graphic
-                    value={graphic.field2}
+                    value={graphic.field3}
                     name="Umidade"
                     color="#4169E1"
                     id="umidadeGrafico"

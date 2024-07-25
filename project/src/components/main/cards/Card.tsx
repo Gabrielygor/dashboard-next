@@ -11,6 +11,9 @@ interface CardProps {
 }
 
 export function Card({ value, icon, title, unit, className, link }: CardProps) {
+
+    const formattedValue = value ? parseFloat(value).toFixed(1) : "0.0";
+
     return (
         <a href={link}>
             <section className={className}>
@@ -21,7 +24,7 @@ export function Card({ value, icon, title, unit, className, link }: CardProps) {
                 </div>
                 <div className="info">
                     <span className="info__total" id="temperatura-valor">
-                        {value}
+                        {formattedValue}
                     </span>
                     <span>
                         {unit}
