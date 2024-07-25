@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core"
+import { useThingSpeakData } from "@/hooks/ThingSpeakData"
 
 
 interface OtherInformationProps {
@@ -12,6 +13,11 @@ interface OtherInformationProps {
 
 
 export function OtherInformation({ text, id, icon, unit, value }: OtherInformationProps) {
+
+    const { thingspeak } = useThingSpeakData();
+
+    
+
     return (
         <div className="demais__info">
 

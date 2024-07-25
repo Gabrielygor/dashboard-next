@@ -14,6 +14,43 @@ export function Main() {
     const { graphic } = useThingSpeakGraphic();
 
 
+    const temperaturaAtual: number = Number(thingspeak.field1);
+    const umidadeAtual: number = Number(thingspeak.field2);
+    const pressaoAtual: number = Number(thingspeak.field3)
+
+    function calcHeatIndex() {
+        const heatIndex = temperaturaAtual - (0.55 - 0.0055 * umidadeAtual) * (temperaturaAtual - 14.5);
+        return heatIndex
+    }
+
+    function calcIndiceDeCalor() {
+    
+        let indiceCalor = temperaturaAtual - ((0.55 - 0.0055 * umidadeAtual) * (temperaturaAtual - 58));
+        indiceCalor = Math.round(indiceCalor * 10) / 10;
+        return indiceCalor;
+    }
+    
+    function calcPontoDeOrvalho() {
+        const pontodeOrvalho = temperaturaAtual - ((100 - umidadeAtual) / 5);
+        return pontodeOrvalho;
+    }
+
+    function calcAltitudeAproximada() {
+        //OBS : PRESSAO LIDA EM hPa 
+        //Código que corresponde à pressão atmosférica padrão ao nível médio do mar, equivalente a 1013,2 hectopascal (hPa).
+    
+        const pressaoNivelDoMar = 1013.25
+        const escala = 8.3
+        const altitude = ((pressaoNivelDoMar - pressaoAtual) / pressaoNivelDoMar) * escala * 1000;
+        return altitude
+    } 
+
+
+    const heatIndexValue = calcHeatIndex();
+    const indiceCalorValue = calcIndiceDeCalor();
+    const pontoDeOrvalhoValue = calcPontoDeOrvalho();
+    const altitudeValue = calcAltitudeAproximada();
+
     return (
 
         <main className="container">
@@ -128,7 +165,7 @@ export function Main() {
                             id="indeceDeConfortoTermico"
                             icon={faWind}
                             unit="°C"
-                            value=''
+                            value={heatIndexValue.toFixed(1)}
                         />
 
                         <OtherInformation
@@ -136,7 +173,7 @@ export function Main() {
                             id="indiceDeCalor"
                             icon={faFire}
                             unit="°C"
-                            value=''
+                            value={indiceCalorValue.toFixed(1)}
                         />
 
                         <OtherInformation
@@ -144,7 +181,7 @@ export function Main() {
                             id="pontoDeOrvalho"
                             icon={faTree}
                             unit="°C"
-                            value=''
+                            value={pontoDeOrvalhoValue.toFixed(1)}
                         />
 
                         <OtherInformation
@@ -152,7 +189,7 @@ export function Main() {
                             id="altitudeAproximada"
                             icon={faMountain}
                             unit="M"
-                            value=''
+                            value={altitudeValue.toFixed(1)}
                         />
 
                     </div>
