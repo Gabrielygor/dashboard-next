@@ -19,15 +19,10 @@ export function useThingSpeakData() {
                 .get('https://api.thingspeak.com/channels/1293177/feeds/last.json')
                 .then((response) => setThingSpeak(response.data))
                 .catch((err) => console.log(err))
-                .finally(() => console.log('finally'));
         };
 
         fetchData();
-
-        console.log("Requisição 3 Minutos");
-
         const interval = setInterval(fetchData, 180000);
-
         return () => clearInterval(interval);
     }, []);
 
