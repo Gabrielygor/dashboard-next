@@ -42,7 +42,6 @@ export function Navigation() {
                 <input type="text" name="" id="state-select-list__search" placeholder="Pesquisar" className="select_list__search" />
                 <ul>
                     <li onClick={() => ReturnLocalNameAndId("1293177", "Labican")} className="select_list__item" id="1293177">Labican</li>
-                    <li onClick={() => ReturnLocalNameAndId("45123123", "Biblioteca")} className="select_list__item" id="45123123">Biblioteca</li>
                 </ul>
             </div>
         </div>
