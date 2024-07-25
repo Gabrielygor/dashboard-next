@@ -14,10 +14,6 @@ interface OtherInformationProps {
 
 export function OtherInformation({ text, id, icon, unit, value }: OtherInformationProps) {
 
-    const { thingspeak } = useThingSpeakData();
-
-    
-
     return (
         <div className="demais__info">
 
