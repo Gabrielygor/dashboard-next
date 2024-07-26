@@ -24,12 +24,12 @@ export function Main() {
     }
 
     function calcIndiceDeCalor() {
-    
+
         let indiceCalor = temperaturaAtual - ((0.55 - 0.0055 * umidadeAtual) * (temperaturaAtual - 58));
         indiceCalor = Math.round(indiceCalor * 10) / 10;
         return indiceCalor;
     }
-    
+
     function calcPontoDeOrvalho() {
         const pontodeOrvalho = temperaturaAtual - ((100 - umidadeAtual) / 5);
         return pontodeOrvalho;
@@ -38,12 +38,12 @@ export function Main() {
     function calcAltitudeAproximada() {
         //OBS : PRESSAO LIDA EM hPa 
         //Código que corresponde à pressão atmosférica padrão ao nível médio do mar, equivalente a 1013,2 hectopascal (hPa).
-    
+
         const pressaoNivelDoMar = 1013.25
         const escala = 8.3
         const altitude = ((pressaoNivelDoMar - pressaoAtual) / pressaoNivelDoMar) * escala * 1000;
         return altitude
-    } 
+    }
 
 
     const heatIndexValue = calcHeatIndex();
@@ -148,14 +148,6 @@ export function Main() {
 
                 <section className="data-box padrao">
                     <h2 className="data-box__header">
-                        ?????
-                    </h2>
-                    <div className="data-box__body">
-                    </div>
-                </section>
-
-                <section className="data-box padrao">
-                    <h2 className="data-box__header">
                         Conforto Ambiental e Qualidade do Ar
                     </h2>
                     <div className="data-box__body demais__info__container">
@@ -195,7 +187,7 @@ export function Main() {
                     </div>
                 </section>
 
-                <section className="data-box padrao">
+                <section className="data-box padrao map">
                     <h2 className="data-box__header">
                         Localização
                     </h2>

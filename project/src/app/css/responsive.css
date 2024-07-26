@@ -42,6 +42,10 @@
     .temperatura-grafico {
         grid-column: span 2;
     }
+    
+    .map {
+        grid-column: span 2;
+    }
 }
 
 
@@ -64,6 +68,10 @@
     .humidade-grafico,
     .padrao {
         grid-column: span 2;
+    }
+
+    .map {
+        grid-column: span 4;
     }
 
     .select {
