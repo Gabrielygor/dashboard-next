@@ -1,5 +1,3 @@
-"use client"
-
 import { useEffect } from "react";
 
 interface GraphicProps {
@@ -25,7 +23,7 @@ export function Graphic({ value , name, color, id , className, sectionId, height
 
                     series: [{
                         name: name,
-                        data: value.map(v => parseFloat(v)) // Convertendo os valores para números
+                        data: value.map(v => parseFloat(v).toFixed(1)) // Convertendo os valores para números e formatando com uma casa decimal
                     }],
                     
                     colors: [color],
@@ -82,5 +80,3 @@ export function Graphic({ value , name, color, id , className, sectionId, height
         </section>
     );
 }
-
-//'11:20' , '11:22' , '11:23' , '11:25' , '11:27' , '11:28' , '11:30' , '11:32' , '11:34' , '11:35'
