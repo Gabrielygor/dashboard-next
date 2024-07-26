@@ -23,7 +23,7 @@ export function Graphic({ value , name, color, id , className, sectionId, height
 
                     series: [{
                         name: name,
-                        data: value.map(v => parseFloat(v).toFixed(1)) // Convertendo os valores para números e formatando com uma casa decimal
+                        data: value.map(v => parseFloat(v).toFixed(2)) // Convertendo os valores para números e formatando com uma casa decimal
                     }],
                     
                     colors: [color],
