@@ -2,35 +2,41 @@ import { useEffect } from "react";
 
 interface GraphicProps {
     value: string[] | undefined;
-    name: string
-    color: string
-    id:string
-    className:string
-    sectionId:string
-    height: string
+    name: string;
+    color: string;
+    id: string;
+    className: string;
+    sectionId: string;
+    height: string;
 }
 
-export function Graphic({ value , name, color, id , className, sectionId, height}: GraphicProps) {
+export function Graphic({ value, name, color, id, className, sectionId, height }: GraphicProps) {
     useEffect(() => {
+        // Função para limpar a div do gráfico
+        const clearChart = () => {
+            const chartDiv = document.querySelector(`#${id}`);
+            if (chartDiv) {
+                chartDiv.innerHTML = '';
+            }
+        };
+
         // Importação da biblioteca ApexCharts dentro do useEffect
         import("apexcharts").then(ApexCharts => {
             if (value && value.length > 0) {
+                clearChart(); // Limpa a div antes de criar o gráfico
+                
                 const options = {
                     chart: {
                         type: 'line',
                         height: height
                     },
-
                     series: [{
                         name: name,
                         data: value.map(v => parseFloat(v).toFixed(2)) // Convertendo os valores para números e formatando com uma casa decimal
                     }],
-                    
                     colors: [color],
-
                     xaxis: {
                         categories: [''], 
-                        
                         labels: {
                             style: {
                                 colors: 'var(--bg-eixos-graficos)', // Define a cor da fonte dos rótulos
@@ -40,7 +46,6 @@ export function Graphic({ value , name, color, id , className, sectionId, height
                             }
                         }
                     },
-
                     yaxis: {
                         labels: {
                             style: {
@@ -51,7 +56,6 @@ export function Graphic({ value , name, color, id , className, sectionId, height
                             }
                         }
                     },
-
                     legend: {
                         labels: {
                             useSeriesColors: false,

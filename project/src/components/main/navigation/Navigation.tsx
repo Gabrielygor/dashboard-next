@@ -1,13 +1,16 @@
 'use client'
 
+// Navigation.tsx
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { useLocation } from '../../../contexts/LocationContext';
 
 export function Navigation() {
+    const { setSelectedLocationId } = useLocation();
     const [isSelectMenuOpen, setIsSelectMenuOpen] = useState(false);
     const [isSelectMenuIcon, setIsSelectMenuIcon] = useState(false);
-    const [isSelectedLocal, setIsSelectedLocal] = useState(" Labican ");
+    const [isSelectedLocal, setIsSelectedLocal] = useState("Labican");
 
     function OpenNavigationMenu() {
         setIsSelectMenuOpen(!isSelectMenuOpen);
@@ -25,7 +28,8 @@ export function Navigation() {
     function ReturnLocalNameAndId(id: string, name: string) {
         console.log(id);
         console.log(name);
-        setIsSelectedLocal(name)
+        setIsSelectedLocal(name);
+        setSelectedLocationId(id);
         OpenNavigationMenu();
     }
 
@@ -42,6 +46,9 @@ export function Navigation() {
                 <input type="text" name="" id="state-select-list__search" placeholder="Pesquisar" className="select_list__search" />
                 <ul>
                     <li onClick={() => ReturnLocalNameAndId("1293177", "Labican")} className="select_list__item" id="1293177">Labican</li>
+                    <li onClick={() => ReturnLocalNameAndId("1785844", "Biblioteca")} className="select_list__item" id="1785844">Biblioteca</li>
+                    <li onClick={() => ReturnLocalNameAndId("2257912", "Minas")} className="select_list__item" id="2257912">Minas</li>
+                    
                 </ul>
             </div>
         </div>
