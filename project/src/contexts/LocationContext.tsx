@@ -10,7 +10,7 @@ interface LocationContextType {
 const LocationContext = createContext<LocationContextType | undefined>(undefined);
 
 export const LocationProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [selectedLocationId, setSelectedLocationId] = useState<string>('1293177');
+    const [selectedLocationId, setSelectedLocationId] = useState<string>('2461689');
 
     return (
         <LocationContext.Provider value={{ selectedLocationId, setSelectedLocationId }}>

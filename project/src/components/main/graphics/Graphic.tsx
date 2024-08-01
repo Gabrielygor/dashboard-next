@@ -12,7 +12,7 @@ interface GraphicProps {
 
 export function Graphic({ value, name, color, id, className, sectionId, height }: GraphicProps) {
     useEffect(() => {
-        // Função para limpar a div do gráfico
+
         const clearChart = () => {
             const chartDiv = document.querySelector(`#${id}`);
             if (chartDiv) {
@@ -20,11 +20,11 @@ export function Graphic({ value, name, color, id, className, sectionId, height }
             }
         };
 
-        // Importação da biblioteca ApexCharts dentro do useEffect
+
         import("apexcharts").then(ApexCharts => {
             if (value && value.length > 0) {
-                clearChart(); // Limpa a div antes de criar o gráfico
-                
+                clearChart();
+
                 const options = {
                     chart: {
                         type: 'line',
@@ -32,14 +32,14 @@ export function Graphic({ value, name, color, id, className, sectionId, height }
                     },
                     series: [{
                         name: name,
-                        data: value.map(v => parseFloat(v).toFixed(2)) // Convertendo os valores para números e formatando com uma casa decimal
+                        data: value.map(v => parseFloat(v).toFixed(2))
                     }],
                     colors: [color],
                     xaxis: {
-                        categories: [''], 
+                        categories: [''],
                         labels: {
                             style: {
-                                colors: 'var(--bg-eixos-graficos)', // Define a cor da fonte dos rótulos
+                                colors: 'var(--bg-eixos-graficos)',
                                 fontSize: '12px',
                                 fontFamily: 'Arial, sans-serif',
                                 fontWeight: 400
@@ -47,15 +47,19 @@ export function Graphic({ value, name, color, id, className, sectionId, height }
                         }
                     },
                     yaxis: {
+                        max: Math.max(...value.map(v => parseFloat(v))) + 1, 
+                        tickAmount: 8, 
                         labels: {
+                            formatter: (val: number) => val.toFixed(2), 
                             style: {
-                                colors: 'var(--clr-scrollbar)', // Define a cor da fonte do eixo y
+                                colors: 'var(--clr-scrollbar)',
                                 fontSize: '12px',
                                 fontFamily: 'Arial, sans-serif',
                                 fontWeight: 400
                             }
                         }
                     },
+
                     legend: {
                         labels: {
                             useSeriesColors: false,
@@ -67,7 +71,7 @@ export function Graphic({ value, name, color, id, className, sectionId, height }
                 chart.render();
 
                 return () => {
-                    chart.destroy(); // Destruir o gráfico ao desmontar o componente
+                    chart.destroy();
                 };
             }
         });

@@ -5,7 +5,7 @@ export function Footer() {
     return (
         <footer className="footer">
             <div className="footer__text">
-                <p className="footer-text__source">DashBoard Metereológico UFRN </p>
+                <p className="footer-text__source">DashBoard Climatológico UFRN </p>
             </div>
 
             <a href="#" className="back_to_top_button">

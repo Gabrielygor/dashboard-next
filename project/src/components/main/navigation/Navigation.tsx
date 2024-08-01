@@ -45,9 +45,9 @@ export function Navigation() {
             <div className={`select_list ${isSelectMenuOpen ? 'select_list__show' : ''}`} id="state-select-list">
                 <input type="text" name="" id="state-select-list__search" placeholder="Pesquisar" className="select_list__search" />
                 <ul>
-                    <li onClick={() => ReturnLocalNameAndId("1293177", "Labican")} className="select_list__item" id="1293177">Labican</li>
-                    <li onClick={() => ReturnLocalNameAndId("1785844", "Biblioteca")} className="select_list__item" id="1785844">Biblioteca</li>
-                    <li onClick={() => ReturnLocalNameAndId("2257912", "Minas")} className="select_list__item" id="2257912">Minas</li>
+                    <li onClick={() => ReturnLocalNameAndId("2461689", "Labican")} className="select_list__item" id="2461689">Labican</li>
+                    <li onClick={() => ReturnLocalNameAndId("2311546", "Estação Meteorológica UFRN")} className="select_list__item" id="2311546">Estação Climatológica UFRN</li>
+                    <li onClick={() => ReturnLocalNameAndId("2507204", "Carnaúba dos Dantas")} className="select_list__item" id="2507204">Carnaúba dos Dantas</li>
                     
                 </ul>
             </div>

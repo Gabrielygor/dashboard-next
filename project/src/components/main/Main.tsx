@@ -7,16 +7,18 @@ import { OtherInformation } from "./otherinformation/OtherInformation";
 import { faFire, faWind, faTree, faMountain, faTemperatureLow, faDroplet, faLightbulb, faCompass } from "@fortawesome/free-solid-svg-icons";
 import { useThingSpeakData } from "@/hooks/ThingSpeakData";
 import { useThingSpeakGraphic } from "@/hooks/ThingSpeakGraphic";
+import { useLocation } from "@/contexts/LocationContext";
 
 export function Main() {
 
+    const { selectedLocationId } = useLocation();
     const { thingspeak } = useThingSpeakData();
     const { graphic } = useThingSpeakGraphic();
 
 
     const temperaturaAtual: number = Number(thingspeak.field1);
     const umidadeAtual: number = Number(thingspeak.field2);
-    const pressaoAtual: number = Number(thingspeak.field3)
+    const pressaoAtual: number = Number(thingspeak.field5)
 
     function calcHeatIndex() {
         const heatIndex = temperaturaAtual - (0.55 - 0.0055 * umidadeAtual) * (temperaturaAtual - 14.5);
@@ -36,13 +38,14 @@ export function Main() {
     }
 
     function calcAltitudeAproximada() {
-        //OBS : PRESSAO LIDA EM hPa 
-        //Código que corresponde à pressão atmosférica padrão ao nível médio do mar, equivalente a 1013,2 hectopascal (hPa).
+        const P0 = 1013.25; // Pressão padrão ao nível do mar em hPa
+        const T = 288.15;   // Temperatura padrão ao nível do mar em Kelvin
+        const L = 0.0065;   // Taxa de decréscimo da temperatura em K/m
+        const R = 287.05;   // Constante dos gases perfeitos para ar seco em J/(kg·K)
+        const g = 9.80665;  // Aceleração da gravidade em m/s²
+        const h = (T / L) * (1 - Math.pow(pressaoAtual / P0, R * L / g));
 
-        const pressaoNivelDoMar = 1013.25
-        const escala = 8.3
-        const altitude = ((pressaoNivelDoMar - pressaoAtual) / pressaoNivelDoMar) * escala * 1000;
-        return altitude
+        return h;
     }
 
 
@@ -63,88 +66,276 @@ export function Main() {
 
             <div className="cards">
 
-                <Card
-                    link="#temperaturaSection"
-                    className='status temperatura'
-                    title="Temperatura"
-                    unit="°C"
-                    icon={faTemperatureLow}
-                    value={thingspeak.field1}
-                />
+                {/* 
+                    2461689 Labican
+                    2311546 Estação Meteorológica UFRN
+                    2507204 Carnaúba dos Dantas 
+                */}
 
-                <Card
-                    link="#pressaoSection"
-                    className='status pressao'
-                    title="Pressão"
-                    unit="hpa"
-                    icon={faCompass}
-                    value={thingspeak.field2}
-                />
+                {selectedLocationId === '2461689' && ( //LABICAN
+                    <>
+                        <Card
+                            link="#temperaturaSection"
+                            className='status temperatura'
+                            title="Temperatura"
+                            unit="°C"
+                            icon={faTemperatureLow}
+                            value={thingspeak.field1}
+                        />
 
-                <Card
-                    link="#umidadeSection"
-                    className='status umidade'
-                    title="Umidade"
-                    unit="%"
-                    icon={faDroplet}
-                    value={thingspeak.field3}
-                />
+                        <Card
+                            link="#pressaoSection"
+                            className='status pressao'
+                            title="Pressão"
+                            unit="hpa"
+                            icon={faCompass}
+                            value={thingspeak.field5}
+                        />
 
-                <Card
-                    link="#luminosidadeSection"
-                    className='status luminosidade'
-                    title="Luminosidade"
-                    unit=""
-                    icon={faLightbulb}
-                    value={thingspeak.field4}
-                />
+                        <Card
+                            link="#umidadeSection"
+                            className='status umidade'
+                            title="Umidade"
+                            unit="%"
+                            icon={faDroplet}
+                            value={thingspeak.field2}
+                        />
+
+                        <Card
+                            link="#luminosidadeSection"
+                            className='status luminosidade'
+                            title="Luminosidade"
+                            unit=""
+                            icon={faLightbulb}
+                            value={thingspeak.field3}
+                        />
+                    </>
+                )}
+
+                {selectedLocationId === '2311546' && ( //Estação Meteorológica UFRN
+                    <>
+                        <Card
+                            link="#temperaturaSection"
+                            className='status temperatura'
+                            title="Temperatura"
+                            unit="°C"
+                            icon={faTemperatureLow}
+                            value={thingspeak.field2}
+                        />
+
+                        <Card
+                            link="#pressaoSection"
+                            className='status pressao'
+                            title="Pressão"
+                            unit="hpa"
+                            icon={faCompass}
+                            value={thingspeak.field7}
+                        />
+
+                        <Card
+                            link="#umidadeSection"
+                            className='status umidade'
+                            title="Umidade"
+                            unit="%"
+                            icon={faDroplet}
+                            value={thingspeak.field1}
+                        />
+
+                        <Card
+                            link="#luminosidadeSection"
+                            className='status luminosidade'
+                            title="Luminosidade"
+                            unit=""
+                            icon={faLightbulb}
+                            value={thingspeak.field3}
+                        />
+                    </>
+                )}
+
+                {selectedLocationId === '2507204' && ( //Carnauba dos Dantas
+                    <>
+                        <Card
+                            link="#temperaturaSection"
+                            className='status temperatura'
+                            title="Temperatura"
+                            unit="°C"
+                            icon={faTemperatureLow}
+                            value={thingspeak.field2}
+                        />
+
+                        <Card
+                            link="#pressaoSection"
+                            className='status pressao'
+                            title="Pressão"
+                            unit="hpa"
+                            icon={faCompass}
+                            value={thingspeak.field6}
+                        />
+
+                        <Card
+                            link="#umidadeSection"
+                            className='status umidade'
+                            title="Umidade"
+                            unit="%"
+                            icon={faDroplet}
+                            value={thingspeak.field1}
+                        />
+
+                        <Card
+                            link="#luminosidadeSection"
+                            className='status luminosidade'
+                            title="Luminosidade"
+                            unit=""
+                            icon={faLightbulb}
+                            value={thingspeak.field3}
+                        />
+                    </>
+                )}
 
             </div>
 
             <div className="graficos">
 
-                <Graphic
-                    value={graphic.field1}
-                    name="Temperatura"
-                    color="#DC143C"
-                    id="temperaturaGrafico"
-                    className="data-box temperatura-grafico"
-                    sectionId='temperaturaSection'
-                    height='500'
-                />
+                {selectedLocationId == '2461689' && (
+                    <>
+                        <Graphic
+                            value={graphic.field1}
+                            name="Temperatura"
+                            color="#DC143C"
+                            id="temperaturaGrafico"
+                            className="data-box temperatura-grafico"
+                            sectionId='temperaturaSection'
+                            height='500'
+                        />
 
-                <Graphic
-                    value={graphic.field4}
-                    name="Luminosidade"
-                    color="#FFD700"
-                    id="luminosidadeGrafico"
-                    className="data-box"
-                    sectionId='luminosidadeSection'
-                    height='200'
+                        <Graphic
+                            value={graphic.field3}
+                            name="Luminosidade"
+                            color="#FFD700"
+                            id="luminosidadeGrafico"
+                            className="data-box"
+                            sectionId='luminosidadeSection'
+                            height='200'
 
-                />
+                        />
 
-                <Graphic
-                    value={graphic.field2}
-                    name="Pressão"
-                    color="#00FF00"
-                    id="pressaoGrafico"
-                    className="data-box pressao-grafico"
-                    sectionId='pressaoSection'
-                    height='200'
+                        <Graphic
+                            value={graphic.field5}
+                            name="Pressão"
+                            color="#00FF00"
+                            id="pressaoGrafico"
+                            className="data-box pressao-grafico"
+                            sectionId='pressaoSection'
+                            height='200'
 
-                />
+                        />
 
-                <Graphic
-                    value={graphic.field3}
-                    name="Umidade"
-                    color="#4169E1"
-                    id="umidadeGrafico"
-                    className="data-box humidade-grafico"
-                    sectionId='umidadeSection'
-                    height='350'
+                        <Graphic
+                            value={graphic.field2}
+                            name="Umidade"
+                            color="#4169E1"
+                            id="umidadeGrafico"
+                            className="data-box humidade-grafico"
+                            sectionId='umidadeSection'
+                            height='350'
 
-                />
+                        />
+                    </>
+                )}
+
+                {selectedLocationId == '2311546' && (
+                    <>
+                        <Graphic
+                            value={graphic.field2}
+                            name="Temperatura"
+                            color="#DC143C"
+                            id="temperaturaGrafico"
+                            className="data-box temperatura-grafico"
+                            sectionId='temperaturaSection'
+                            height='500'
+                        />
+
+                        <Graphic
+                            value={graphic.field3}
+                            name="Luminosidade"
+                            color="#FFD700"
+                            id="luminosidadeGrafico"
+                            className="data-box"
+                            sectionId='luminosidadeSection'
+                            height='200'
+
+                        />
+
+                        <Graphic
+                            value={graphic.field7}
+                            name="Pressão"
+                            color="#00FF00"
+                            id="pressaoGrafico"
+                            className="data-box pressao-grafico"
+                            sectionId='pressaoSection'
+                            height='200'
+
+                        />
+
+                        <Graphic
+                            value={graphic.field1}
+                            name="Umidade"
+                            color="#4169E1"
+                            id="umidadeGrafico"
+                            className="data-box humidade-grafico"
+                            sectionId='umidadeSection'
+                            height='350'
+
+                        />
+                    </>
+                )}
+
+                {selectedLocationId == '2507204' && (
+                    <>
+                        <Graphic
+                            value={graphic.field2}
+                            name="Temperatura"
+                            color="#DC143C"
+                            id="temperaturaGrafico"
+                            className="data-box temperatura-grafico"
+                            sectionId='temperaturaSection'
+                            height='500'
+                        />
+
+                        <Graphic
+                            value={graphic.field3}
+                            name="Luminosidade"
+                            color="#FFD700"
+                            id="luminosidadeGrafico"
+                            className="data-box"
+                            sectionId='luminosidadeSection'
+                            height='200'
+
+                        />
+
+                        <Graphic
+                            value={graphic.field6}
+                            name="Pressão"
+                            color="#00FF00"
+                            id="pressaoGrafico"
+                            className="data-box pressao-grafico"
+                            sectionId='pressaoSection'
+                            height='200'
+
+                        />
+
+                        <Graphic
+                            value={graphic.field1}
+                            name="Umidade"
+                            color="#4169E1"
+                            id="umidadeGrafico"
+                            className="data-box humidade-grafico"
+                            sectionId='umidadeSection'
+                            height='350'
+
+                        />
+                    </>
+                )}
 
                 <section className="data-box padrao">
                     <h2 className="data-box__header">
@@ -193,17 +384,34 @@ export function Main() {
                     </h2>
                     <div className="data-box__body">
 
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d912.8212001289115!2d-37.08424161410223!3d-6.466588858249297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7afed7934494ec7%3A0xbc86346e5a924e94!2sLABICAN%20-%20Laborat%C3%B3rio%20de%20Intelig%C3%AAncia%20Computacional%20Aplicada%20a%20Neg%C3%B3cios!5e0!3m2!1spt-BR!2sbr!4v1721566508914!5m2!1spt-BR!2sbr"
-                            width="100%"
-                            height="360"
-                            aria-label="Google Maps showing the location of LABICAN - Laboratório de Inteligência Computacional Aplicada a Negócios"
-                        />
+                        {selectedLocationId === '2461689' && (
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d912.8212001289115!2d-37.08424161410223!3d-6.466588858249297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7afed7934494ec7%3A0xbc86346e5a924e94!2sLABICAN%20-%20Laborat%C3%B3rio%20de%20Intelig%C3%AAncia%20Computacional%20Aplicada%20a%20Neg%C3%B3cios!5e0!3m2!1spt-BR!2sbr!4v1721566508914!5m2!1spt-BR!2sbr"
+                                width="100%"
+                                height="360"
+                            />
+                        )}
+
+                        {selectedLocationId === '2311546' && (
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3425.750399699382!2d-37.08443176050649!3d-6.467647038933336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7afedab1b879121%3A0x55a2f46645b6dbd2!2sCentro%20de%20Ensino%20Superior%20do%20Serid%C3%B3%20-%20UFRN!5e0!3m2!1spt-BR!2sbr!4v1722548731103!5m2!1spt-BR!2sbr"
+                                width="100%"
+                                height="360"
+                            />
+                        )}
+
+                        {selectedLocationId === '2507204' && (
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15854.918672107133!2d-36.60374613949603!3d-6.555771744996462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ae4a9f5006e7a7%3A0x285056c80b1677e0!2sCarna%C3%BAba%20dos%20Dantas%2C%20RN%2C%2059374-000!5e0!3m2!1spt-BR!2sbr!4v1722548846720!5m2!1spt-BR!2sbr"
+                                width="100%"
+                                height="360"
+                            />
+                        )}
 
                     </div>
                 </section>
             </div>
 
-        </main>
+        </main >
     )
 }
