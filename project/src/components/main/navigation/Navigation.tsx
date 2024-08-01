@@ -46,7 +46,7 @@ export function Navigation() {
                 <input type="text" name="" id="state-select-list__search" placeholder="Pesquisar" className="select_list__search" />
                 <ul>
                     <li onClick={() => ReturnLocalNameAndId("2461689", "Labican")} className="select_list__item" id="2461689">Labican</li>
-                    <li onClick={() => ReturnLocalNameAndId("2311546", "Estação Meteorológica UFRN")} className="select_list__item" id="2311546">Estação Climatológica UFRN</li>
+                    <li onClick={() => ReturnLocalNameAndId("2311546", "Estação Climatológica UFRN")} className="select_list__item" id="2311546">Estação Climatológica UFRN</li>
                     <li onClick={() => ReturnLocalNameAndId("2507204", "Carnaúba dos Dantas")} className="select_list__item" id="2507204">Carnaúba dos Dantas</li>
                     
                 </ul>
