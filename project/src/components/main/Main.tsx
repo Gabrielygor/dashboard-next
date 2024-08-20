@@ -48,11 +48,68 @@ export function Main() {
         return h;
     }
 
+    // 2311546assssssssssssssssssssssssss
+    // 2311546assssssssssssssssssssssssss
+
+
+    const temp: number = Number(thingspeak.field2);
+    const umi: number = Number(thingspeak.field1);
+    const pres2311546: number = Number(thingspeak.field7)
+    const pres2507204: number = Number(thingspeak.field6)
+
+    function calcHeatIndex2311546() {
+        const heatIndex = temp - (0.55 - 0.0055 * umi) * (temp - 14.5);
+        return heatIndex
+    }
+
+    function calcIndiceDeCalor2311546() {
+
+        let indiceCalor = temp - ((0.55 - 0.0055 * umi) * (temp - 58));
+        indiceCalor = Math.round(indiceCalor * 10) / 10;
+        return indiceCalor;
+    }
+
+    function calcPontoDeOrvalho2311546() {
+        const pontodeOrvalho = temp - ((100 - umi) / 5);
+        return pontodeOrvalho;
+    }
+
+    function calcAltitudeAproximada2311546() {
+        const P0 = 1013.25; // Pressão padrão ao nível do mar em hPa
+        const T = 288.15;   // Temperatura padrão ao nível do mar em Kelvin
+        const L = 0.0065;   // Taxa de decréscimo da temperatura em K/m
+        const R = 287.05;   // Constante dos gases perfeitos para ar seco em J/(kg·K)
+        const g = 9.80665;  // Aceleração da gravidade em m/s²
+        const h = (T / L) * (1 - Math.pow(pres2311546 / P0, R * L / g));
+
+        return h;
+    }
+
+    function calcAltitudeAproximada2507204() {
+        const P0 = 1013.25; // Pressão padrão ao nível do mar em hPa
+        const T = 288.15;   // Temperatura padrão ao nível do mar em Kelvin
+        const L = 0.0065;   // Taxa de decréscimo da temperatura em K/m
+        const R = 287.05;   // Constante dos gases perfeitos para ar seco em J/(kg·K)
+        const g = 9.80665;  // Aceleração da gravidade em m/s²
+        const h = (T / L) * (1 - Math.pow(pres2507204 / P0, R * L / g));
+
+        return h;
+    }
+
 
     const heatIndexValue = calcHeatIndex();
     const indiceCalorValue = calcIndiceDeCalor();
     const pontoDeOrvalhoValue = calcPontoDeOrvalho();
     const altitudeValue = calcAltitudeAproximada();
+
+    //Gambiarra
+
+    const Ct = calcHeatIndex2311546()
+    const IDC = calcIndiceDeCalor2311546()
+    const PDO = calcPontoDeOrvalho2311546()
+    const Press1 = calcAltitudeAproximada2311546()
+    const Press2 = calcAltitudeAproximada2507204()
+
 
     return (
 
@@ -343,37 +400,113 @@ export function Main() {
                     </h2>
                     <div className="data-box__body demais__info__container">
 
-                        <OtherInformation
-                            text="Conforto térmico:"
-                            id="indeceDeConfortoTermico"
-                            icon={faWind}
-                            unit="°C"
-                            value={heatIndexValue.toFixed(1)}
-                        />
+                        {selectedLocationId === '2461689' && (
+                            <>
+                                <OtherInformation
+                                    text="Conforto térmico:"
+                                    id="indeceDeConfortoTermico"
+                                    icon={faWind}
+                                    unit="°C"
+                                    value={heatIndexValue.toFixed(1)}
+                                />
 
-                        <OtherInformation
-                            text="indice de calor:"
-                            id="indiceDeCalor"
-                            icon={faFire}
-                            unit="°C"
-                            value={indiceCalorValue.toFixed(1)}
-                        />
+                                <OtherInformation
+                                    text="indice de calor:"
+                                    id="indiceDeCalor"
+                                    icon={faFire}
+                                    unit="°C"
+                                    value={indiceCalorValue.toFixed(1)}
+                                />
 
-                        <OtherInformation
-                            text="ponto de orvalho:"
-                            id="pontoDeOrvalho"
-                            icon={faTree}
-                            unit="°C"
-                            value={pontoDeOrvalhoValue.toFixed(1)}
-                        />
+                                <OtherInformation
+                                    text="ponto de orvalho:"
+                                    id="pontoDeOrvalho"
+                                    icon={faTree}
+                                    unit="°C"
+                                    value={pontoDeOrvalhoValue.toFixed(1)}
+                                />
 
-                        <OtherInformation
-                            text="Altitude Aproximada:"
-                            id="altitudeAproximada"
-                            icon={faMountain}
-                            unit="M"
-                            value={altitudeValue.toFixed(1)}
-                        />
+                                <OtherInformation
+                                    text="Altitude Aproximada:"
+                                    id="altitudeAproximada"
+                                    icon={faMountain}
+                                    unit="M"
+                                    value={altitudeValue.toFixed(1)}
+                                />
+                            </>
+                        )}
+
+                        {selectedLocationId === '2311546' && (
+                            <>
+                                <OtherInformation
+                                    text="Conforto térmico:"
+                                    id="indeceDeConfortoTermico"
+                                    icon={faWind}
+                                    unit="°C"
+                                    value={Ct.toFixed(1)}
+                                />
+
+                                <OtherInformation
+                                    text="indice de calor:"
+                                    id="indiceDeCalor"
+                                    icon={faFire}
+                                    unit="°C"
+                                    value={IDC.toFixed(1)}
+                                />
+
+                                <OtherInformation
+                                    text="ponto de orvalho:"
+                                    id="pontoDeOrvalho"
+                                    icon={faTree}
+                                    unit="°C"
+                                    value={PDO.toFixed(1)}
+                                />
+
+                                <OtherInformation
+                                    text="Altitude Aproximada:"
+                                    id="altitudeAproximada"
+                                    icon={faMountain}
+                                    unit="M"
+                                    value={Press1.toFixed(1)}
+                                />
+                            </>
+                        )}
+
+                        {selectedLocationId === '2507204' && (
+                            <>
+                                <OtherInformation
+                                    text="Conforto térmico:"
+                                    id="indeceDeConfortoTermico"
+                                    icon={faWind}
+                                    unit="°C"
+                                    value={Ct.toFixed(1)}
+                                />
+
+                                <OtherInformation
+                                    text="indice de calor:"
+                                    id="indiceDeCalor"
+                                    icon={faFire}
+                                    unit="°C"
+                                    value={IDC.toFixed(1)}
+                                />
+
+                                <OtherInformation
+                                    text="ponto de orvalho:"
+                                    id="pontoDeOrvalho"
+                                    icon={faTree}
+                                    unit="°C"
+                                    value={PDO.toFixed(1)}
+                                />
+
+                                <OtherInformation
+                                    text="Altitude Aproximada:"
+                                    id="altitudeAproximada"
+                                    icon={faMountain}
+                                    unit="M"
+                                    value={Press2.toFixed(1)}
+                                />
+                            </>
+                        )}
 
                     </div>
                 </section>
