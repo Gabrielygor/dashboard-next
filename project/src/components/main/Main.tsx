@@ -403,7 +403,7 @@ export function Main() {
                         {selectedLocationId === '2461689' && (
                             <>
                                 <OtherInformation
-                                    text="Conforto térmico:"
+                                    text="Conforto Térmico:"
                                     id="indeceDeConfortoTermico"
                                     icon={faWind}
                                     unit="°C"
@@ -411,7 +411,7 @@ export function Main() {
                                 />
 
                                 <OtherInformation
-                                    text="indice de calor:"
+                                    text="Índice de Calor:"
                                     id="indiceDeCalor"
                                     icon={faFire}
                                     unit="°C"
@@ -419,7 +419,7 @@ export function Main() {
                                 />
 
                                 <OtherInformation
-                                    text="ponto de orvalho:"
+                                    text="Ponto de Orvalho:"
                                     id="pontoDeOrvalho"
                                     icon={faTree}
                                     unit="°C"
@@ -430,7 +430,7 @@ export function Main() {
                                     text="Altitude Aproximada:"
                                     id="altitudeAproximada"
                                     icon={faMountain}
-                                    unit="M"
+                                    unit="m"
                                     value={altitudeValue.toFixed(1)}
                                 />
                             </>
@@ -439,7 +439,7 @@ export function Main() {
                         {selectedLocationId === '2311546' && (
                             <>
                                 <OtherInformation
-                                    text="Conforto térmico:"
+                                    text="Conforto Térmico:"
                                     id="indeceDeConfortoTermico"
                                     icon={faWind}
                                     unit="°C"
@@ -447,7 +447,7 @@ export function Main() {
                                 />
 
                                 <OtherInformation
-                                    text="indice de calor:"
+                                    text="Índice de Calor:"
                                     id="indiceDeCalor"
                                     icon={faFire}
                                     unit="°C"
@@ -455,7 +455,7 @@ export function Main() {
                                 />
 
                                 <OtherInformation
-                                    text="ponto de orvalho:"
+                                    text="Ponto de Orvalho:"
                                     id="pontoDeOrvalho"
                                     icon={faTree}
                                     unit="°C"
@@ -466,7 +466,7 @@ export function Main() {
                                     text="Altitude Aproximada:"
                                     id="altitudeAproximada"
                                     icon={faMountain}
-                                    unit="M"
+                                    unit="m"
                                     value={Press1.toFixed(1)}
                                 />
                             </>
@@ -475,7 +475,7 @@ export function Main() {
                         {selectedLocationId === '2507204' && (
                             <>
                                 <OtherInformation
-                                    text="Conforto térmico:"
+                                    text="Conforto Térmico:"
                                     id="indeceDeConfortoTermico"
                                     icon={faWind}
                                     unit="°C"
@@ -483,7 +483,7 @@ export function Main() {
                                 />
 
                                 <OtherInformation
-                                    text="indice de calor:"
+                                    text="Índice de Calor:"
                                     id="indiceDeCalor"
                                     icon={faFire}
                                     unit="°C"
@@ -491,7 +491,7 @@ export function Main() {
                                 />
 
                                 <OtherInformation
-                                    text="ponto de orvalho:"
+                                    text="Ponto de Orvalho:"
                                     id="pontoDeOrvalho"
                                     icon={faTree}
                                     unit="°C"
@@ -502,7 +502,7 @@ export function Main() {
                                     text="Altitude Aproximada:"
                                     id="altitudeAproximada"
                                     icon={faMountain}
-                                    unit="M"
+                                    unit="m"
                                     value={Press2.toFixed(1)}
                                 />
                             </>
