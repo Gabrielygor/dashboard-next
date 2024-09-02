@@ -1,4 +1,7 @@
-:root {
+.ligth-mode {
+
+
+
     --clr-background: #d2d2d2;
     --clr-font: #111111;
     --clr-card: #fffdfd;
@@ -51,7 +54,7 @@
 
 }
 
-.dark-mode {
+:root {
     --clr-background: #151313;
     --clr-font: #ffffff;
     --clr-card: #232121;

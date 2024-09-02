@@ -4,18 +4,18 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export function Header() {
-    const [isDarkMode, setIsDarkMode] = useState(false);
+    const [isLightMode, setIsLightMode] = useState(false);
 
     useEffect(() => {
-        if (isDarkMode) {
-            document.body.classList.add("dark-mode");
+        if (isLightMode) {
+            document.body.classList.add("ligth-mode");
         } else {
-            document.body.classList.remove("dark-mode");
+            document.body.classList.remove("ligth-mode");
         }
-    }, [isDarkMode]);
+    }, [isLightMode]);
 
     const handleThemeChange = () => {
-        setIsDarkMode(!isDarkMode);
+        setIsLightMode(!isLightMode);
     };
 
     return (
@@ -34,7 +34,7 @@ export function Header() {
                     <input 
                         type="checkbox" 
                         id="theme_btn" 
-                        checked={isDarkMode} 
+                        checked={isLightMode} 
                         onChange={handleThemeChange} 
                     />
                     <svg viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg" className="moon">
